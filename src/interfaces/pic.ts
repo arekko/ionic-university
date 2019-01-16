@@ -1,4 +1,4 @@
-interface Pic {
+export interface Pic {
   title: string;
   details: string;
   thumbnail: string;
