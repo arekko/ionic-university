@@ -1,4 +1,5 @@
-import { Media, Files } from "./../../interfaces/media";
+import { MediaResponse } from "../../interfaces/media";
+import { MediaProvider } from "./../../providers/media/media";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
@@ -12,25 +13,27 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private photoViewer: PhotoViewer,
-    public http: HttpClient
+    public http: HttpClient,
+    private mediaProvider: MediaProvider
   ) {}
 
-  configUrl: string = "http://media.mw.metropolia.fi/wbma/media/all";
+  media: any = [];
 
-  ngOnInit() {
-    this.fetchData();
+  async ngOnInit() {
+    await this.mediaProvider
+      .getAllMedia()
+      .subscribe((response: MediaResponse[]) => {
+        this.media = response.map(response => ({
+          ...response,
+          thumbnailUrl: `http://media.mw.metropolia.fi/wbma/uploads/${
+            response.filename
+          }`
+        }));
+        console.log(this.media);
+      });
   }
 
-  data: Files[] = [];
-
-  async fetchData() {
-    await this.http.get<Media>(this.configUrl).subscribe((res: Media) => {
-      this.data = res.files;
-      console.log(this.data);
-    });
+  itemHandle(e) {
+    this.photoViewer.show(e);
   }
-
-  // itemHandle(e) {
-  //   this.photoViewer.show(e);
-  // }
 }
