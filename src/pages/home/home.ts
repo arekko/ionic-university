@@ -23,12 +23,15 @@ export class HomePage {
     await this.mediaProvider
       .getAllMedia()
       .subscribe((response: MediaResponse[]) => {
-        this.media = response.map(response => ({
-          ...response,
-          thumbnailUrl: `http://media.mw.metropolia.fi/wbma/uploads/${
-            response.filename
-          }`
-        }));
+        this.media = response.map(response => {
+          const fileName = response.filename.split(".")[0];
+          const ext = response.mime_type.split("/")[1];
+
+          return {
+            ...response,
+            thumbnailUrl: `http://media.mw.metropolia.fi/wbma/uploads/${fileName}-tn320.${ext}`
+          };
+        });
         console.log(this.media);
       });
   }
