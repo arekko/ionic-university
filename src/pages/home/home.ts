@@ -17,16 +17,16 @@ export class HomePage {
     private mediaProvider: MediaProvider
   ) {}
 
-  media: any[] = [];
+  media: MediaResponse[] = [];
 
   async ngOnInit() {
     await this.mediaProvider
       .getAllMedia()
       .subscribe((response: MediaResponse[]) => {
-        response.map(async response => {
+        response.map(async item => {
           await this.mediaProvider
-            .getSingleMedia(response.file_id)
-            .subscribe((res: any) => {
+            .getSingleMedia(item.file_id)
+            .subscribe((res: MediaResponse) => {
               this.media.push(res);
             });
         });
@@ -34,6 +34,7 @@ export class HomePage {
   }
 
   itemHandle(e) {
-    this.photoViewer.show(e);
+    const url = `http://media.mw.metropolia.fi/wbma/uploads/${e}`;
+    this.photoViewer.show(url);
   }
 }

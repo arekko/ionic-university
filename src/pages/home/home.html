@@ -5,11 +5,15 @@
 <ion-content padding>
   <ion-item *ngFor="let item of media">
     <ion-thumbnail item-start>
-      <img src="localhost:3000/{{ item.title }}" />
+      <img
+        src="http://media.mw.metropolia.fi/wbma/uploads/{{
+          item.thumbnails[320]
+        }}"
+      />
     </ion-thumbnail>
     <h2>{{ item.title || "No name" }}</h2>
     <p>{{ item.description }}</p>
-    <button (click)="itemHandle(item.thumbnailUrl)" ion-button clear item-end>
+    <button (click)="itemHandle(item.filename)" ion-button clear item-end>
       View
     </button>
   </ion-item>
