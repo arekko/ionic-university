@@ -17,22 +17,19 @@ export class HomePage {
     private mediaProvider: MediaProvider
   ) {}
 
-  media: any = [];
+  media: any[] = [];
 
   async ngOnInit() {
     await this.mediaProvider
       .getAllMedia()
       .subscribe((response: MediaResponse[]) => {
-        this.media = response.map(response => {
-          const fileName = response.filename.split(".")[0];
-          const ext = response.mime_type.split("/")[1];
-
-          return {
-            ...response,
-            thumbnailUrl: `http://media.mw.metropolia.fi/wbma/uploads/${fileName}-tn320.${ext}`
-          };
+        response.map(async response => {
+          await this.mediaProvider
+            .getSingleMedia(response.file_id)
+            .subscribe((res: any) => {
+              this.media.push(res);
+            });
         });
-        console.log(this.media);
       });
   }
 
