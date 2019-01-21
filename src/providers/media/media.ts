@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { MediaResponse } from "../../interfaces/media";
+import { LoginUser, LoginResponse } from "../../interfaces/user";
 
 /*
   Generated class for the MediaProvider provider.
@@ -15,11 +16,15 @@ export class MediaProvider {
 
   public BASE_URL: string = "http://media.mw.metropolia.fi/wbma";
 
-  getAllMedia(): Observable<Object> {
+  getAllMedia(): Observable<MediaResponse[]> {
     return this.http.get<MediaResponse[]>(`${this.BASE_URL}/media`);
   }
 
-  getSingleMedia(id: number) {
+  getSingleMedia(id: number): Observable<MediaResponse> {
     return this.http.get<MediaResponse>(`${this.BASE_URL}/media/${id}`);
+  }
+
+  login(userData: LoginUser): Observable<LoginResponse | any> {
+    return this.http.post(`${this.BASE_URL}/login`, userData);
   }
 }

@@ -7,13 +7,16 @@ import { HttpClientModule } from "@angular/common/http";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
-import { MediaProvider } from '../providers/media/media';
+import { MediaProvider } from "../providers/media/media";
+import { MenuPage } from "../pages/menu/menu";
+import { LoginRegisterPage } from "../pages/login-register/login-register";
+import { LogoutPage } from "../pages/logout/logout";
 
 @NgModule({
-  declarations: [MyApp, HomePage],
+  declarations: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage],
+  entryComponents: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
   providers: [
     StatusBar,
     SplashScreen,
