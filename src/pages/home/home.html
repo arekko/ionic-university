@@ -5,7 +5,7 @@
 <ion-content padding>
   <ion-item *ngFor="let item of media">
     <ion-thumbnail item-start>
-      <img [src]="item.thumbnailUrl" />
+      <img [src]="item.thumbnails[320]" />
     </ion-thumbnail>
     <h2>{{ item.title || "No name" }}</h2>
     <p>{{ item.description }}</p>

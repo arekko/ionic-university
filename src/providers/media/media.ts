@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { MediaResponse } from "../../interfaces/media";
 
 /*
   Generated class for the MediaProvider provider.
@@ -11,9 +12,9 @@ import { Injectable } from "@angular/core";
 export class MediaProvider {
   constructor(public http: HttpClient) {}
 
-  public BASE_URL: string = "http://media.mw.metropolia.fi/wbma/media";
+  public BASE_URL: string = "http://media.mw.metropolia.fi/wbma";
 
   getAllMedia() {
-    return this.http.get(this.BASE_URL);
+    return this.http.get<MediaResponse[]>(this.BASE_URL + "/media");
   }
 }
