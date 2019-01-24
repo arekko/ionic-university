@@ -83,10 +83,10 @@
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-4.18.0.tgz#d5f57e94c40f1b7bc1e86b4d7a17f02110249383"
   integrity sha512-J9Vz9YhKHRU+xw2C80PJrtfz/8njKl+muRynFfAM+auI4cp+WX89klzOCmkhZHv8UwVZyVEZaXrPoIEohEX7Aw==
 
-"@ionic-native/photo-viewer@^4.19.0":
-  version "4.19.0"
-  resolved "https://registry.yarnpkg.com/@ionic-native/photo-viewer/-/photo-viewer-4.19.0.tgz#e4ccb93a485ac24b1793c91b83d6a7197eae6f4d"
-  integrity sha512-+17469Xr1fRk5JUho/An6KmO88jT2JCYrb+ajM2MjPzSdar+zVo6wfhBH+A+XSE6ZGAJPO57iBMGnWu6EVFHYg==
+"@ionic-native/photo-viewer@^4.20.0":
+  version "4.20.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/photo-viewer/-/photo-viewer-4.20.0.tgz#f5559f3857ea7587e22718a404eda505cc48c4f1"
+  integrity sha512-XpBTxn80okTuFmBlUpA2b2qY0rIE7/jUMrjr7qpTTGcXNfsOZ8OwTnv7WAt6VV6ts8KZG+Hvs/puoH+JwmUX0g==
 
 "@ionic-native/splash-screen@~4.18.0":
   version "4.18.0"
@@ -145,7 +145,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
   integrity sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
 
-abbrev@1:
+abbrev@*, abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
@@ -204,6 +204,13 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
+android-versions@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/android-versions/-/android-versions-1.4.0.tgz#807ea2941d7e5780e6dd61c5d9b7b6f3c0706e09"
+  integrity sha512-GnomfYsBq+nZh3c3UH/4r9Jt6FuTxdhUJbeHIdYOH5xBhQ8I0ZzC2/RM5IFFIjrzuNWSHb8JWP1lPK0/a26jrg==
+  dependencies:
+    semver "^5.4.1"
+
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
@@ -226,7 +233,7 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-ansi@^0.3.1:
+ansi@*, ansi@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/ansi/-/ansi-0.3.1.tgz#0c42d4fb17160d5a9af1e484bace1c66922c1b21"
   integrity sha1-DELU+xcWDVqa8eSEus4cZpIsGyE=
@@ -405,7 +412,7 @@ babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-balanced-match@^1.0.0:
+balanced-match@*, balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
@@ -444,6 +451,11 @@ bcrypt-pbkdf@^1.0.0:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+big-integer@1.6.32:
+  version "1.6.32"
+  resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.32.tgz#5867458b25ecd5bcb36b627c30bb501a13c07e89"
+  integrity sha512-ljKJdR3wk9thHfLj4DtrNiOSTxvGFaMjWrG4pW75juXC4j7+XuKJVFdg4kgFMYp85PVkO05dFMj2dk2xVsH4xw==
 
 big-integer@^1.6.7:
   version "1.6.40"
@@ -505,7 +517,7 @@ bplist-creator@0.0.7:
   dependencies:
     stream-buffers "~2.2.0"
 
-bplist-parser@0.1.1, bplist-parser@^0.1.0:
+bplist-parser@*, bplist-parser@0.1.1, bplist-parser@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/bplist-parser/-/bplist-parser-0.1.1.tgz#d60d5dcc20cba6dc7e1f299b35d3e1f95dafbae6"
   integrity sha1-1g1dzCDLptx+HymbNdPh+V2vuuY=
@@ -517,7 +529,7 @@ bplist-parser@^0.0.6:
   resolved "https://registry.yarnpkg.com/bplist-parser/-/bplist-parser-0.0.6.tgz#38da3471817df9d44ab3892e27707bbbd75a11b9"
   integrity sha1-ONo0cYF9+dRKs4kuJ3B7u9daEbk=
 
-brace-expansion@^1.1.7:
+brace-expansion@*, brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
   integrity sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==
@@ -858,7 +870,7 @@ color-name@1.1.3:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
   integrity sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
 
-com-sarriaroman-photoviewer@1.2.0:
+com-sarriaroman-photoviewer@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/com-sarriaroman-photoviewer/-/com-sarriaroman-photoviewer-1.2.0.tgz#c033232cc42bbe09bcac4a7d3708d961c0c85d87"
   integrity sha512-vd+jKHKlZQ2PadC2Lx7su8lKbub6HUkgmieMMzUEAn4m++a3BKLJtV8WrtiTiab3E6IoXrxPizSf97RONGLQlQ==
@@ -885,7 +897,7 @@ component-emitter@^1.2.1:
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
   integrity sha1-E3kY1teCg/ffemt8WmPhQOaUJeY=
 
-concat-map@0.0.1:
+concat-map@*, concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
@@ -937,6 +949,27 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
+cordova-android@7.1.4:
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/cordova-android/-/cordova-android-7.1.4.tgz#25261ad66cc64f42a30b70be005901fa30e2430e"
+  integrity sha512-Rtvu002I83uzfVyCsE6p2krFKVHt9TSAqZUATes+zH+o9cdxYGrLHY+PKCQo4SLCdSMdrkIHCDnQPTYTp/d7+g==
+  dependencies:
+    android-versions "1.4.0"
+    base64-js "1.2.0"
+    big-integer "1.6.32"
+    cordova-common "2.2.5"
+    elementtree "0.1.6"
+    glob "5.0.15"
+    nopt "3.0.1"
+    path-is-absolute "1.0.1"
+    plist "2.1.0"
+    properties-parser "0.2.3"
+    q "1.4.1"
+    sax "0.3.5"
+    semver "5.5.0"
+    shelljs "0.5.3"
+    xmlbuilder "8.2.2"
+
 cordova-common@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/cordova-common/-/cordova-common-2.2.5.tgz#f93cef2ad494cfcbf56c46e3d612aaa9cb5fcc32"
@@ -987,10 +1020,10 @@ cordova-plugin-ionic-keyboard@^2.1.3:
   resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-keyboard/-/cordova-plugin-ionic-keyboard-2.1.3.tgz#6b050d5b7cb4393d5758b55f45a46372f25178fe"
   integrity sha512-6ucQ6FdlLdBm8kJfFnzozmBTjru/0xekHP/dAhjoCZggkGRlgs8TsUJFkxa/bV+qi7Dlo50JjmpE4UMWAO+aOQ==
 
-cordova-plugin-ionic-webview@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-2.3.1.tgz#13106cef1354b8aa8a4a6ef879f8759a2e707f49"
-  integrity sha512-tGKRp2iEYbOwZ2sT/uBU2C1YW1a43QI3YGi4WMH4LsgUdDjYGj4OZ8o7xQtRlxOKpdAjtSyLn1wz3Jip04elMg==
+cordova-plugin-ionic-webview@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-2.3.2.tgz#f4b1d669cefe7d25cfe47cfc9c6fe820211b63fa"
+  integrity sha512-f7nXWTT93ZAJP4fMUxZWd8BacegTJNUK9Cocu0n2SH8gliAIjKzJtvSzEONSJ5b1Xp2osdUF6f5x+oWvyM90jQ==
 
 cordova-plugin-splashscreen@^5.0.2:
   version "5.0.2"
@@ -1007,7 +1040,7 @@ cordova-plugin-whitelist@^1.3.3:
   resolved "https://registry.yarnpkg.com/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz#b5e85ecdbbfe5aeded40a1bf4ee2372e67d96fb4"
   integrity sha1-tehezbv+Wu3tQKG/TuI3LmfZb7Q=
 
-cordova-registry-mapper@^1.1.8:
+cordova-registry-mapper@*, cordova-registry-mapper@^1.1.8:
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/cordova-registry-mapper/-/cordova-registry-mapper-1.1.15.tgz#e244b9185b8175473bff6079324905115f83dc7c"
   integrity sha1-4kS5GFuBdUc7/2B5MkkFEV+D3Hw=
@@ -2028,7 +2061,7 @@ indexof@0.0.1:
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
   integrity sha1-gtwzbSMrkGIXnQWrMpOmYFn9Q10=
 
-inflight@^1.0.4:
+inflight@*, inflight@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
   integrity sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=
@@ -2036,7 +2069,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
+inherits@*, inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
   integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
@@ -2070,6 +2103,11 @@ ionicons@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-3.0.0.tgz#40b8daf4fd7a31150bd002160f66496e22a98c3c"
   integrity sha1-QLja9P16MRUL0AIWD2ZJbiKpjDw=
+
+ios-deploy@^1.9.4:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/ios-deploy/-/ios-deploy-1.9.4.tgz#5aa6b198feabcf53f912639fc2d9e11b4923079d"
+  integrity sha512-pgyc19zgtwGrfx3GL8yV0c0dAPucTpJ0VZkuS3DcqxIZYC48+UW+tBTxI43u1ZDk17mop0ABLs1SkAy5SUQ6pQ==
 
 ios-sim@6.1.3:
   version "6.1.3"
@@ -2727,7 +2765,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-"minimatch@2 || 3", minimatch@^3.0.0, minimatch@^3.0.4, minimatch@~3.0.2:
+minimatch@*, "minimatch@2 || 3", minimatch@^3.0.0, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -2932,6 +2970,13 @@ nopt@1.0.9:
   dependencies:
     abbrev "1"
 
+nopt@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/nopt/-/nopt-3.0.1.tgz#bce5c42446a3291f47622a370abbf158fbbacbfd"
+  integrity sha1-vOXEJEajKR9HYio3CrvxWPu6y/0=
+  dependencies:
+    abbrev "1"
+
 nopt@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
@@ -3050,7 +3095,7 @@ on-finished@~2.3.0:
   dependencies:
     ee-first "1.1.1"
 
-once@^1.3.0:
+once@*, once@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
@@ -3193,7 +3238,7 @@ path-exists@^3.0.0:
   resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-3.0.0.tgz#ce0ebeaa5f78cb18925ea7d810d7b59b010fd515"
   integrity sha1-zg6+ql94yxiSXqfYENe1mwEP1RU=
 
-path-is-absolute@^1.0.0:
+path-is-absolute@1.0.1, path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
@@ -3331,6 +3376,11 @@ process@~0.5.1:
   resolved "https://registry.yarnpkg.com/process/-/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
   integrity sha1-FjjYqONML0QKkduVq5rrZ3/Bhc8=
 
+properties-parser@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/properties-parser/-/properties-parser-0.2.3.tgz#f7591255f707abbff227c7b56b637dbb0373a10f"
+  integrity sha1-91kSVfcHq7/yJ8e1a2N9uwNzoQ8=
+
 proxy-addr@~2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.4.tgz#ecfc733bf22ff8c6f407fa275327b9ab67e48b93"
@@ -3385,6 +3435,11 @@ punycode@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+
+q@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.4.1.tgz#55705bcd93c5f3673530c2c2cbc0c2b3addc286e"
+  integrity sha1-VXBbzZPF82c1MMLCy8DCs63cKG4=
 
 q@1.5.1, q@^1.4.1:
   version "1.5.1"
@@ -3745,10 +3800,15 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.3.0:
+"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.3.0, semver@^5.4.1:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
+
+semver@5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+  integrity sha512-4SJ3dm0WAwWy/NVeioZh5AntkdJoWKxHxcmyP622fOkgHa4z3R0TdBJICINyaSDE6uNwVc8gZr+ZinwZAH4xIA==
 
 semver@~5.3.0:
   version "5.3.0"
@@ -4421,7 +4481,7 @@ ultron@~1.1.0:
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
   integrity sha512-UIEXBNeYmKptWH6z8ZnqTeS8fV74zG0/eRU9VGkpzz+LIJNs8W/zM/L+7ctCkRrgbNnnR0xxw4bKOr0cW0N0Og==
 
-underscore@^1.8.3:
+underscore@*, underscore@^1.8.3:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
   integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
@@ -4441,7 +4501,7 @@ universalify@^0.1.0:
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
 
-unorm@^1.3.3:
+unorm@*, unorm@^1.3.3:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/unorm/-/unorm-1.4.1.tgz#364200d5f13646ca8bcd44490271335614792300"
   integrity sha1-NkIA1fE2RsqLzURJAnEzVhR5IwA=
@@ -4664,7 +4724,7 @@ wrap-ansi@^2.0.0:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
 
-wrappy@1:
+wrappy@*, wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
@@ -4710,7 +4770,7 @@ xmlbuilder@~9.0.1:
   resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-9.0.7.tgz#132ee63d2ec5565c557e20f4c22df9aca686b10d"
   integrity sha1-Ey7mPS7FVlxVfiD0wi35rKaGsQ0=
 
-xmldom@0.1.x:
+xmldom@*, xmldom@0.1.x:
   version "0.1.27"
   resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
   integrity sha1-1QH5ezvbQDr4757MIFcxh6rawOk=

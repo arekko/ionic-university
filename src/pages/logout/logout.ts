@@ -1,25 +1,29 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LogoutPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MediaProvider } from "./../../providers/media/media";
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { MenuPage } from "./../menu/menu";
 
 @IonicPage()
 @Component({
-  selector: 'page-logout',
-  templateUrl: 'logout.html',
+  selector: "page-logout",
+  templateUrl: "logout.html"
 })
 export class LogoutPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public mediaProvider: MediaProvider
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LogoutPage');
+    this.logout();
   }
 
+  async logout() {
+    console.log("logout");
+
+    await localStorage.removeItem("login");
+    this.mediaProvider.isLoggedIn = false;
+    this.navCtrl.push(MenuPage);
+  }
 }

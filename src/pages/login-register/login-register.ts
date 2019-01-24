@@ -1,8 +1,14 @@
+import { MenuPage } from "./../menu/menu";
+import { MediaProvider } from "./../../providers/media/media";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { MediaProvider } from "../../providers/media/media";
-import { LoginUser, LoginResponse } from "../../interfaces/user";
-import { MenuPage } from "../menu/menu";
+import {
+  LoginUser,
+  LoginResponse,
+  RegisterUserData,
+  RegisterResponse
+} from "../../interfaces/user";
+import { HttpResponse } from "@angular/common/http";
 
 /**
  * Generated class for the LoginRegisterPage page.
@@ -20,29 +26,41 @@ export class LoginRegisterPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private mediaProvider: MediaProvider
+    public mediaProvider: MediaProvider
   ) {}
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad LoginRegisterPage");
-    if (localStorage.getItem("login")) {
-      this.navCtrl.push(MenuPage);
-    }
-  }
+  ionViewDidLoad() {}
 
-  user: LoginUser = {
+  login: LoginUser = {
     username: "",
     password: ""
   };
-  async submitForm() {
+  register: RegisterUserData = {
+    username: "",
+    password: "",
+    email: "",
+    full_name: ""
+  };
+  async submitLoginForm() {
     await this.mediaProvider
-      .login(this.user)
-      .subscribe((res: LoginResponse) => {
+      .login(this.login)
+      .subscribe(async (res: LoginResponse) => {
         console.log(res);
         if (res.token) {
-          localStorage.setItem("login", res.token);
+          this.mediaProvider.isLoggedIn = true;
+          await localStorage.setItem("login", res.token);
           this.navCtrl.push(MenuPage);
         }
+      });
+  }
+
+  async submitRegisterForm() {
+    console.log(this.register);
+
+    await this.mediaProvider
+      .register(this.register)
+      .subscribe(async (res: RegisterResponse) => {
+        console.log(res);
       });
   }
 }

@@ -34,6 +34,8 @@ export class HomePage {
   }
 
   itemHandle(e) {
+    console.log(this.media);
+
     const url = `http://media.mw.metropolia.fi/wbma/uploads/${e}`;
     this.photoViewer.show(url);
   }

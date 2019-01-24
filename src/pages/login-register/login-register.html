@@ -9,23 +9,72 @@
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="submitForm()">
-    <ion-item>
-      <ion-label>Username</ion-label>
-      <ion-input
-        type="text"
-        [(ngModel)]="user.username"
-        name="email"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Password</ion-label>
-      <ion-input
-        type="password"
-        [(ngModel)]="user.password"
-        name="password"
-      ></ion-input>
-    </ion-item>
-    <button ion-button type="submit" block>Login</button>
-  </form>
+  <ion-card>
+    <ion-card-header> <ion-card-title>Login</ion-card-title> </ion-card-header>
+
+    <ion-card-content>
+      <form (ngSubmit)="submitLoginForm()">
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="login.username"
+            name="email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="login.password"
+            name="password"
+          ></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Login</button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Register</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="submitRegisterForm()">
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="register.username"
+            name="email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="register.password"
+            name="password"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input
+            type="email"
+            [(ngModel)]="register.email"
+            name="email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fullname</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="register.full_name"
+            name="full_name"
+          ></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Register</button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
