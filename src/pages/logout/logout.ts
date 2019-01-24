@@ -20,8 +20,6 @@ export class LogoutPage {
   }
 
   async logout() {
-    console.log("logout");
-
     await localStorage.removeItem("login");
     this.mediaProvider.isLoggedIn = false;
     this.navCtrl.push(MenuPage);

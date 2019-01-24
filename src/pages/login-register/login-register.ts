@@ -1,3 +1,4 @@
+import { LoginUser } from "./../../interfaces/user";
 import { MenuPage } from "./../menu/menu";
 import { MediaProvider } from "./../../providers/media/media";
 import { Component } from "@angular/core";
@@ -9,6 +10,7 @@ import {
   RegisterResponse
 } from "../../interfaces/user";
 import { HttpResponse } from "@angular/common/http";
+import { registerLocaleData } from "@angular/common";
 
 /**
  * Generated class for the LoginRegisterPage page.
@@ -42,25 +44,31 @@ export class LoginRegisterPage {
     full_name: ""
   };
   async submitLoginForm() {
+    this.loginUser(this.login);
+  }
+
+  async submitRegisterForm() {
     await this.mediaProvider
-      .login(this.login)
-      .subscribe(async (res: LoginResponse) => {
+      .register(this.register)
+      .subscribe(async (res: RegisterResponse) => {
         console.log(res);
+        res.user_id &&
+          this.loginUser({
+            username: this.register.username,
+            password: this.register.password
+          });
+      });
+  }
+
+  async loginUser(userData) {
+    await this.mediaProvider
+      .login(userData)
+      .subscribe(async (res: LoginResponse) => {
         if (res.token) {
           this.mediaProvider.isLoggedIn = true;
           await localStorage.setItem("login", res.token);
           this.navCtrl.push(MenuPage);
         }
-      });
-  }
-
-  async submitRegisterForm() {
-    console.log(this.register);
-
-    await this.mediaProvider
-      .register(this.register)
-      .subscribe(async (res: RegisterResponse) => {
-        console.log(res);
       });
   }
 }
