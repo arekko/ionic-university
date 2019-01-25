@@ -10,12 +10,6 @@ import {
 } from "../../interfaces/user";
 import { P } from "@angular/core/src/render3";
 
-/*
-  Generated class for the MediaProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class MediaProvider {
   constructor(public http: HttpClient) {}

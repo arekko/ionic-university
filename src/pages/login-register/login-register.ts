@@ -1,16 +1,15 @@
-import { LoginUser } from "./../../interfaces/user";
-import { MenuPage } from "./../menu/menu";
-import { MediaProvider } from "./../../providers/media/media";
-import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+
+import { Component } from "@angular/core";
+
 import {
-  LoginUser,
   LoginResponse,
-  RegisterUserData,
-  RegisterResponse
+  LoginUser,
+  RegisterResponse,
+  RegisterUserData
 } from "../../interfaces/user";
-import { HttpResponse } from "@angular/common/http";
-import { registerLocaleData } from "@angular/common";
+import { MediaProvider } from "../../providers/media/media";
+import { MenuPage } from "../menu/menu";
 
 /**
  * Generated class for the LoginRegisterPage page.
