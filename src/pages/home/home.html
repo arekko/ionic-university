@@ -4,7 +4,14 @@
 
 <ion-content padding>
   <ion-item *ngFor="let item of (picArray | async)">
-    <ion-thumbnail item-start> <img src="" /> </ion-thumbnail>
+    <ion-thumbnail item-start>
+      <img
+        src="{{ mediaFilePath }}/{{
+          item.file_id | thumbnail: 'medium' | async
+        }}"
+      />
+    </ion-thumbnail>
+    <p>{{ item.file_id | thumbnail: "small" }}</p>
     <h2>{{ item.title || "No name" }}</h2>
     <p>{{ item.time_added | date: "dd.MM.yyyy" }}</p>
     <p>{{ item.description }}</p>

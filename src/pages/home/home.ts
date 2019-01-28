@@ -18,6 +18,7 @@ export class HomePage {
     private mediaProvider: MediaProvider
   ) {}
 
+  public mediaFilePath = "media.mw.metropolia.fi/wbma/uploads";
   picArray: Observable<MediaResponse[]>;
 
   async ngOnInit() {
