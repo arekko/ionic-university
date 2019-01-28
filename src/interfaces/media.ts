@@ -13,6 +13,6 @@ export interface MediaResponse {
   media_type: string;
   mime_type: string;
   time_added: string;
-  screenshots?: string;
+  screenshot?: string;
   thumbnails?: Thumbnails;
 }

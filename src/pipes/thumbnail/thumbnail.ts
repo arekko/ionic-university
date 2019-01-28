@@ -56,7 +56,7 @@ export class ThumbnailPipe implements PipeTransform {
               resolve(response.thumbnails.w320);
               break;
             case "screenshot":
-              resolve(response.screenshots);
+              resolve(response.screenshot);
               break;
             default:
               resolve(response.thumbnails.w160);

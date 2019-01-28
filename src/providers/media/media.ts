@@ -36,4 +36,6 @@ export class MediaProvider {
   register(data: RegisterUserData): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.BASE_URL}/users`, data);
   }
+
+   
 }

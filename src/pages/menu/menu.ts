@@ -1,8 +1,8 @@
+import { ProfilePage } from "./../profile/profile";
 import { MediaProvider } from "./../../providers/media/media";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { HomePage } from "../home/home";
-import { LogoutPage } from "../logout/logout";
 import { LoginRegisterPage } from "../login-register/login-register";
 
 /**
@@ -20,7 +20,7 @@ import { LoginRegisterPage } from "../login-register/login-register";
 export class MenuPage {
   homePage = HomePage;
   loginRegisterPage = LoginRegisterPage;
-  logoutPage = LogoutPage;
+  profilePage = ProfilePage;
 
   constructor(
     public navCtrl: NavController,

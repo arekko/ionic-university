@@ -19,9 +19,5 @@ export class LogoutPage {
     this.logout();
   }
 
-  async logout() {
-    await localStorage.removeItem("login");
-    this.mediaProvider.isLoggedIn = false;
-    this.navCtrl.push(MenuPage);
-  }
+  
 }

@@ -1,3 +1,4 @@
+import { ProfilePage } from './../pages/profile/profile';
 import { PipesModule } from "./../pipes/pipes.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
@@ -14,7 +15,7 @@ import { LogoutPage } from "../pages/logout/logout";
 import { LoginRegisterPage } from "../pages/login-register/login-register";
 
 @NgModule({
-  declarations: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
+  declarations: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage, ProfilePage],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -22,7 +23,7 @@ import { LoginRegisterPage } from "../pages/login-register/login-register";
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
+  entryComponents: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage, ProfilePage],
   providers: [
     StatusBar,
     SplashScreen,
