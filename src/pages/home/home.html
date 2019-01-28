@@ -3,15 +3,10 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item *ngFor="let item of media">
-    <ion-thumbnail item-start>
-      <img
-        src="http://media.mw.metropolia.fi/wbma/uploads/{{
-          item.thumbnails.w320
-        }}"
-      />
-    </ion-thumbnail>
+  <ion-item *ngFor="let item of (picArray | async)">
+    <ion-thumbnail item-start> <img src="" /> </ion-thumbnail>
     <h2>{{ item.title || "No name" }}</h2>
+    <p>{{ item.time_added | date: "dd.MM.yyyy" }}</p>
     <p>{{ item.description }}</p>
     <button (click)="itemHandle(item.filename)" ion-button clear item-end>
       View
