@@ -16,7 +16,7 @@ export class ThumbnailPipe implements PipeTransform {
   private cachedId: number;
   private thumbnail: string;
 
-  transform(id: number, ...args) {
+  async transform(id: number, ...args) {
     // private thumbnail = '';
     // private cachedId = id;
 

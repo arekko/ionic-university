@@ -24,8 +24,14 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad ProfilePage");
+    this.getUser();
+    console.log(this.user);
   }
 
+  user: any;
+  getUser() {
+    this.mediaProvider.getCurrentUser().subscribe(user => (this.user = user));
+  }
   logout() {
     localStorage.removeItem("login");
     this.mediaProvider.isLoggedIn = false;

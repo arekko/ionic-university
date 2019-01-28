@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { MediaResponse } from "../../interfaces/media";
@@ -9,6 +9,7 @@ import {
   RegisterResponse
 } from "../../interfaces/user";
 import { P } from "@angular/core/src/render3";
+import { userInfo } from "os";
 
 @Injectable()
 export class MediaProvider {
@@ -37,5 +38,16 @@ export class MediaProvider {
     return this.http.post<RegisterResponse>(`${this.BASE_URL}/users`, data);
   }
 
-   
+  getCurrentUser() {
+    const token = localStorage.getItem("login");
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "x-access-token": token
+      })
+    };
+    if (token) {
+      return this.http.get(`${this.BASE_URL}/users/user`, httpOptions);
+    }
+  }
 }
