@@ -32,3 +32,10 @@ export interface RegisterResponse {
   message: string;
   user_id: number;
 }
+
+export interface CurrentUserResponse {
+  user_id: number;
+  username: string;
+  email: string;
+  full_name?: string;
+}

@@ -1,12 +1,7 @@
+import { Pipe, PipeTransform } from "@angular/core";
 import { MediaResponse } from "./../../interfaces/media";
 import { MediaProvider } from "./../../providers/media/media";
-import { Pipe, PipeTransform } from "@angular/core";
 
-/**
- * Generated class for the ThumbnailPipe pipe.
- *
- * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
- */
 @Pipe({
   name: "thumbnail"
   // pure: false

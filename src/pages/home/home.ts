@@ -1,10 +1,10 @@
+import { HttpClient } from "@angular/common/http";
+import { Component } from "@angular/core";
+import { PhotoViewer } from "@ionic-native/photo-viewer";
+import { NavController } from "ionic-angular";
+import { Observable } from "rxjs";
 import { MediaResponse } from "../../interfaces/media";
 import { MediaProvider } from "./../../providers/media/media";
-import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
-import { PhotoViewer } from "@ionic-native/photo-viewer";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
 
 @Component({
   selector: "page-home",
@@ -23,18 +23,6 @@ export class HomePage {
 
   async ngOnInit() {
     this.getAllFiles();
-
-    // await this.mediaProvider
-    //   .getAllMedia()
-    //   .subscribe((response: MediaResponse[]) => {
-    //     response.map(async item => {
-    //       await this.mediaProvider
-    //         .getSingleMedia(item.file_id)
-    //         .subscribe((res: MediaResponse) => {
-    //           this.media.push(res);
-    //         });
-    //     });
-    //   });
   }
 
   getAllFiles() {

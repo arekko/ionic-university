@@ -1,14 +1,7 @@
-import { MediaProvider } from "./../../providers/media/media";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { MenuPage } from "../menu/menu";
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CurrentUserResponse } from "./../../interfaces/user";
+import { MediaProvider } from "./../../providers/media/media";
 
 @IonicPage()
 @Component({
@@ -22,19 +15,29 @@ export class ProfilePage {
     public mediaProvider: MediaProvider
   ) {}
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad ProfilePage");
-    this.getUser();
-    console.log(this.user);
+  public data: CurrentUserResponse;
+
+  ngOnInit() {
+    this.mediaProvider
+      .getCurrentUser()
+      .subscribe((response: CurrentUserResponse) => {
+        this.data = Object.assign({}, response);
+      });
   }
 
-  user: any;
-  getUser() {
-    this.mediaProvider.getCurrentUser().subscribe(user => (this.user = user));
-  }
+  // getUser() {
+  //   this.mediaProvider.getCurrentUser();
+  //   this.user.subscribe(response => {
+  //     console.log(response);
+  //     this.data = { ...response };
+  //   });
+  //   console.log("data", this.data);
+  // }
+
   logout() {
-    localStorage.removeItem("login");
-    this.mediaProvider.isLoggedIn = false;
-    this.navCtrl.push(MenuPage);
+    // localStorage.removeItem("login");
+    // this.mediaProvider.isLoggedIn = false;
+    // this.navCtrl.push(MenuPage);
+    console.log(this.data);
   }
 }
