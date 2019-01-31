@@ -14,9 +14,12 @@ export class GetTagByUserPipe implements PipeTransform {
         .getFilesByTag(tag)
         .subscribe((files: MediaResponse[]) => {
           files.forEach((file: MediaResponse) => {
-            file.user_id === this.mediaProvider.user.user_id
-              ? resolve(file.user_id)
-              : reject("No profile image added");
+            if (file.user_id === this.mediaProvider.user.user_id) {
+              console.log("resolve");
+              resolve(file.file_id);
+            } else {
+              // reject("No profile image added");
+            }
           });
         });
     });

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { CurrentUserResponse } from "./../../interfaces/user";
+import { MenuPage } from "../menu/menu";
 import { MediaProvider } from "./../../providers/media/media";
 
 @IonicPage()
@@ -15,29 +15,11 @@ export class ProfilePage {
     public mediaProvider: MediaProvider
   ) {}
 
-  public data: CurrentUserResponse;
-
-  ngOnInit() {
-    this.mediaProvider
-      .getCurrentUser()
-      .subscribe((response: CurrentUserResponse) => {
-        this.data = Object.assign({}, response);
-      });
-  }
-
-  // getUser() {
-  //   this.mediaProvider.getCurrentUser();
-  //   this.user.subscribe(response => {
-  //     console.log(response);
-  //     this.data = { ...response };
-  //   });
-  //   console.log("data", this.data);
-  // }
+  ngOnInit() {}
 
   logout() {
-    // localStorage.removeItem("login");
-    // this.mediaProvider.isLoggedIn = false;
-    // this.navCtrl.push(MenuPage);
-    console.log(this.data);
+    localStorage.clear();
+    this.mediaProvider.isLoggedIn = false;
+    this.navCtrl.push(MenuPage);
   }
 }

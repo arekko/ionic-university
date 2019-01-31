@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { MediaResponse } from "../../interfaces/media";
@@ -8,7 +8,6 @@ import {
   RegisterResponse,
   RegisterUserData
 } from "../../interfaces/user";
-import { CurrentUserResponse } from "./../../interfaces/user";
 
 @Injectable()
 export class MediaProvider {
@@ -38,21 +37,6 @@ export class MediaProvider {
 
   register(data: RegisterUserData): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.mediaApi}/users`, data);
-  }
-
-  getCurrentUser(token: string): Observable<CurrentUserResponse> {
-    // const token = localStorage.getItem("token");
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "x-access-token": token
-      })
-    };
-    if (token) {
-      return this.http.get<CurrentUserResponse>(
-        `${this.mediaApi}/users/user`,
-        httpOptions
-      );
-    }
   }
 
   getFilesByTag(tag: string) {

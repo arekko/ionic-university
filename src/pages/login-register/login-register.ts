@@ -59,6 +59,7 @@ export class LoginRegisterPage {
         if (res.token) {
           this.mediaProvider.isLoggedIn = true;
           await localStorage.setItem("token", res.token);
+          this.mediaProvider.user = res.user;
           this.navCtrl.push(MenuPage);
         }
       });
