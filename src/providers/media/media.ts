@@ -16,29 +16,32 @@ export class MediaProvider {
 
   isLoggedIn: boolean = false;
 
-  public BASE_URL: string = "http://media.mw.metropolia.fi/wbma";
+  public mediaApi: string = "http://media.mw.metropolia.fi/wbma";
+  public mediaFilePath: string = "http://media.mw.metropolia.fi/wbma/uploads/";
+
+  user: any = null;
 
   getAllMedia(): Observable<MediaResponse[]> {
-    return this.http.get<MediaResponse[]>(`${this.BASE_URL}/media`);
+    return this.http.get<MediaResponse[]>(`${this.mediaApi}/media`);
   }
 
   getSingleMedia(id: number): Observable<MediaResponse> {
-    return this.http.get<MediaResponse>(`${this.BASE_URL}/media/${id}`);
+    return this.http.get<MediaResponse>(`${this.mediaApi}/media/${id}`);
   }
 
   login(userData: LoginUser): Observable<LoginResponse | any> {
     return this.http.post<LoginResponse | any>(
-      `${this.BASE_URL}/login`,
+      `${this.mediaApi}/login`,
       userData
     );
   }
 
   register(data: RegisterUserData): Observable<RegisterResponse> {
-    return this.http.post<RegisterResponse>(`${this.BASE_URL}/users`, data);
+    return this.http.post<RegisterResponse>(`${this.mediaApi}/users`, data);
   }
 
-  getCurrentUser(): Observable<CurrentUserResponse> {
-    const token = localStorage.getItem("login");
+  getCurrentUser(token: string): Observable<CurrentUserResponse> {
+    // const token = localStorage.getItem("token");
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": token
@@ -46,9 +49,14 @@ export class MediaProvider {
     };
     if (token) {
       return this.http.get<CurrentUserResponse>(
-        `${this.BASE_URL}/users/user`,
+        `${this.mediaApi}/users/user`,
         httpOptions
       );
     }
+  }
+
+  getFilesByTag(tag: string) {
+    //single file
+    return this.http.get<MediaResponse[]>(`${this.mediaApi}/tags/${tag}`);
   }
 }

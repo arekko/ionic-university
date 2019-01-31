@@ -1,7 +1,5 @@
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-
 import { Component } from "@angular/core";
-
+import { IonicPage, NavController, NavParams } from "ionic-angular";
 import {
   LoginResponse,
   LoginUser,
@@ -10,13 +8,6 @@ import {
 } from "../../interfaces/user";
 import { MediaProvider } from "../../providers/media/media";
 import { MenuPage } from "../menu/menu";
-
-/**
- * Generated class for the LoginRegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -29,6 +20,8 @@ export class LoginRegisterPage {
     public navParams: NavParams,
     public mediaProvider: MediaProvider
   ) {}
+
+  showRegister: boolean = false;
 
   ionViewDidLoad() {}
 
@@ -65,9 +58,13 @@ export class LoginRegisterPage {
       .subscribe(async (res: LoginResponse) => {
         if (res.token) {
           this.mediaProvider.isLoggedIn = true;
-          await localStorage.setItem("login", res.token);
+          await localStorage.setItem("token", res.token);
           this.navCtrl.push(MenuPage);
         }
       });
+  }
+
+  swapLoginRegisterForm() {
+    this.showRegister = !this.showRegister;
   }
 }
