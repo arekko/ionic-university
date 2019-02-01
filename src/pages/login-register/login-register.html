@@ -5,76 +5,63 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar> <ion-title>login-register</ion-title> </ion-navbar>
+  <ion-navbar> <ion-title>Login</ion-title> </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-header> <ion-card-title>Login</ion-card-title> </ion-card-header>
+  <form (ngSubmit)="submitLoginForm()">
+    <ion-item>
+      <ion-input
+        placeholder="Username"
+        type="text"
+        [(ngModel)]="login.username"
+        name="username"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="password"
+        [(ngModel)]="login.password"
+        name="password"
+        placeholder="Password"
+      ></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Login</button>
+  </form>
 
-    <ion-card-content>
-      <form (ngSubmit)="submitLoginForm()">
-        <ion-item>
-          <ion-label>Username</ion-label>
-          <ion-input
-            type="text"
-            [(ngModel)]="login.username"
-            name="email"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Password</ion-label>
-          <ion-input
-            type="password"
-            [(ngModel)]="login.password"
-            name="password"
-          ></ion-input>
-        </ion-item>
-        <button ion-button type="submit" block>Login</button>
-      </form>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Register</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form (ngSubmit)="submitRegisterForm()">
-        <ion-item>
-          <ion-label>Username</ion-label>
-          <ion-input
-            type="text"
-            [(ngModel)]="register.username"
-            name="email"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Password</ion-label>
-          <ion-input
-            type="password"
-            [(ngModel)]="register.password"
-            name="password"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Email</ion-label>
-          <ion-input
-            type="email"
-            [(ngModel)]="register.email"
-            name="email"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Fullname</ion-label>
-          <ion-input
-            type="text"
-            [(ngModel)]="register.full_name"
-            name="full_name"
-          ></ion-input>
-        </ion-item>
-        <button ion-button type="submit" block>Register</button>
-      </form>
-    </ion-card-content>
-  </ion-card>
+  <form (ngSubmit)="submitRegisterForm()">
+    <ion-item>
+      <ion-input
+        type="text"
+        [(ngModel)]="register.username"
+        name="username"
+        placeholder="Username"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="password"
+        [(ngModel)]="register.password"
+        name="password"
+        placeholder="Password"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="email"
+        [(ngModel)]="register.email"
+        name="email"
+        placeholder="Email"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        [(ngModel)]="register.full_name"
+        name="full_name"
+        placeholder="Full name"
+      ></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Register</button>
+  </form>
 </ion-content>

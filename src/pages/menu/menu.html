@@ -1,13 +1,13 @@
 <ion-tabs>
-  <ion-tab [root]="homePage" tabTitle="Home"></ion-tab>
+  <ion-tab [root]="homePage" tabIcon="home"></ion-tab>
   <ion-tab
+    tabIcon="log-in"
     [show]="!mediaProvider.isLoggedIn"
     [root]="loginRegisterPage"
-    tabTitle="Login"
   ></ion-tab>
   <ion-tab
+    tabIcon="person"
     [show]="mediaProvider.isLoggedIn"
     [root]="profilePage"
-    tabTitle="Profile"
   ></ion-tab>
 </ion-tabs>

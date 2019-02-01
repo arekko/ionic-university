@@ -58,8 +58,10 @@ export class LoginRegisterPage {
       .subscribe(async (res: LoginResponse) => {
         if (res.token) {
           this.mediaProvider.isLoggedIn = true;
-          await localStorage.setItem("token", res.token);
+          localStorage.setItem("token", res.token);
+          localStorage.setItem("user", JSON.stringify(res.user));
           this.mediaProvider.user = res.user;
+
           this.navCtrl.push(MenuPage);
         }
       });
