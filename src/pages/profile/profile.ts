@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { MenuPage } from "../menu/menu";
 import { MediaProvider } from "./../../providers/media/media";
 
 @IonicPage()
@@ -20,6 +19,6 @@ export class ProfilePage {
   logout() {
     localStorage.clear();
     this.mediaProvider.isLoggedIn = false;
-    this.navCtrl.push(MenuPage);
+    this.navCtrl.parent.select(0);
   }
 }

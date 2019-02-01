@@ -7,7 +7,6 @@ import {
   RegisterUserData
 } from "../../interfaces/user";
 import { MediaProvider } from "../../providers/media/media";
-import { MenuPage } from "../menu/menu";
 
 @IonicPage()
 @Component({
@@ -62,7 +61,7 @@ export class LoginRegisterPage {
           localStorage.setItem("user", JSON.stringify(res.user));
           this.mediaProvider.user = res.user;
 
-          this.navCtrl.push(MenuPage);
+          this.navCtrl.parent.select(0);
         }
       });
   }
