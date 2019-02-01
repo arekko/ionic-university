@@ -8,6 +8,7 @@ import {
   RegisterResponse,
   RegisterUserData
 } from "../../interfaces/user";
+import { UsernameAvailability } from "./../../interfaces/user";
 
 @Injectable()
 export class MediaProvider {
@@ -42,5 +43,13 @@ export class MediaProvider {
   getFilesByTag(tag: string) {
     //single file
     return this.http.get<MediaResponse[]>(`${this.mediaApi}/tags/${tag}`);
+  }
+
+  checkUsernameAvailability(
+    username: string
+  ): Observable<UsernameAvailability> {
+    return this.http.get<UsernameAvailability>(
+      `${this.mediaApi}/users/username/${username}`
+    );
   }
 }

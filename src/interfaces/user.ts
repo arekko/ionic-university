@@ -39,3 +39,8 @@ export interface CurrentUserResponse {
   email: string;
   full_name?: string;
 }
+
+export interface UsernameAvailability {
+  username: string;
+  available: boolean;
+}

@@ -5,7 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar> <ion-title>profile</ion-title> </ion-navbar>
+  <ion-navbar>
+    <ion-title>profile</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        Logout &nbsp;<ion-icon color="primary" name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>

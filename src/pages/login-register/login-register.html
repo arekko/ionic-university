@@ -5,11 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar> <ion-title>Login</ion-title> </ion-navbar>
+  <ion-navbar *ngIf="!showRegister"> <ion-title>Login</ion-title> </ion-navbar>
+  <ion-navbar *ngIf="showRegister">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="submitLoginForm()">
+  <form *ngIf="!showRegister" (ngSubmit)="submitLoginForm()">
     <ion-item>
       <ion-input
         placeholder="Username"
@@ -29,23 +32,17 @@
     <button ion-button type="submit" block>Login</button>
   </form>
 
-  <form (ngSubmit)="submitRegisterForm()">
+  <form *ngIf="showRegister" (ngSubmit)="submitRegisterForm()">
     <ion-item>
       <ion-input
         type="text"
         [(ngModel)]="register.username"
         name="username"
         placeholder="Username"
+        (ionBlur)="checkUsername()"
       ></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input
-        type="password"
-        [(ngModel)]="register.password"
-        name="password"
-        placeholder="Password"
-      ></ion-input>
-    </ion-item>
+
     <ion-item>
       <ion-input
         type="email"
@@ -62,6 +59,26 @@
         placeholder="Full name"
       ></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-input
+        type="password"
+        [(ngModel)]="register.password"
+        name="password"
+        placeholder="Password"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="password"
+        [(ngModel)]="register.password"
+        name="confirmPassword"
+        placeholder="Confirm password"
+      ></ion-input>
+    </ion-item>
     <button ion-button type="submit" block>Register</button>
   </form>
+  OR
+  <button ion-button clear (click)="swapLoginRegisterForm()">
+    {{ showRegister ? "Login" : "Register" }}
+  </button>
 </ion-content>

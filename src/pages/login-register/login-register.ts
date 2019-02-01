@@ -7,6 +7,7 @@ import {
   RegisterUserData
 } from "../../interfaces/user";
 import { MediaProvider } from "../../providers/media/media";
+import { UsernameAvailability } from "./../../interfaces/user";
 
 @IonicPage()
 @Component({
@@ -34,12 +35,12 @@ export class LoginRegisterPage {
     email: "",
     full_name: ""
   };
-  async submitLoginForm() {
+  submitLoginForm() {
     this.loginUser(this.login);
   }
 
-  async submitRegisterForm() {
-    await this.mediaProvider
+  submitRegisterForm() {
+    this.mediaProvider
       .register(this.register)
       .subscribe(async (res: RegisterResponse) => {
         console.log(res);
@@ -51,22 +52,31 @@ export class LoginRegisterPage {
       });
   }
 
-  async loginUser(userData) {
-    await this.mediaProvider
-      .login(userData)
-      .subscribe(async (res: LoginResponse) => {
-        if (res.token) {
-          this.mediaProvider.isLoggedIn = true;
-          localStorage.setItem("token", res.token);
-          localStorage.setItem("user", JSON.stringify(res.user));
-          this.mediaProvider.user = res.user;
+  loginUser(userData) {
+    this.mediaProvider.login(userData).subscribe(async (res: LoginResponse) => {
+      if (res.token) {
+        this.mediaProvider.isLoggedIn = true;
+        localStorage.setItem("token", res.token);
+        this.mediaProvider.user = res.user;
 
-          this.navCtrl.parent.select(0);
-        }
-      });
+        this.navCtrl.parent.select(0);
+      }
+    });
   }
 
   swapLoginRegisterForm() {
     this.showRegister = !this.showRegister;
+  }
+
+  checkUsername() {
+    this.mediaProvider
+      .checkUsernameAvailability(this.register.username)
+      .subscribe((response: UsernameAvailability) => {
+        console.log(response);
+
+        if (!response.available) {
+          alert("this username already exist");
+        }
+      });
   }
 }
