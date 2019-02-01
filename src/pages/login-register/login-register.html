@@ -11,68 +11,68 @@
   </ion-navbar>
 </ion-header>
 
+<!-- login form -->
 <ion-content padding>
-  <form *ngIf="!showRegister" (ngSubmit)="submitLoginForm()">
+  <form
+    *ngIf="!showRegister"
+    [formGroup]="loginForm"
+    (ngSubmit)="submitLoginForm()"
+  >
     <ion-item>
       <ion-input
         placeholder="Username"
         type="text"
-        [(ngModel)]="login.username"
         name="username"
+        formControlName="username"
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-input
         type="password"
-        [(ngModel)]="login.password"
         name="password"
         placeholder="Password"
+        formControlName="password"
       ></ion-input>
     </ion-item>
     <button ion-button type="submit" block>Login</button>
   </form>
 
-  <form *ngIf="showRegister" (ngSubmit)="submitRegisterForm()">
+  <form
+    *ngIf="showRegister"
+    (ngSubmit)="submitRegisterForm()"
+    [formGroup]="registerForm"
+  >
     <ion-item>
       <ion-input
         type="text"
-        [(ngModel)]="register.username"
         name="username"
         placeholder="Username"
-        (ionBlur)="checkUsername()"
+        formControlName="username"
       ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-input
         type="email"
-        [(ngModel)]="register.email"
         name="email"
         placeholder="Email"
+        formControlName="email"
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-input
         type="text"
-        [(ngModel)]="register.full_name"
         name="full_name"
         placeholder="Full name"
+        formControlName="full_name"
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-input
         type="password"
-        [(ngModel)]="register.password"
         name="password"
         placeholder="Password"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        type="password"
-        [(ngModel)]="register.password"
-        name="confirmPassword"
-        placeholder="Confirm password"
+        formControlName="password"
       ></ion-input>
     </ion-item>
     <button ion-button type="submit" block>Register</button>

@@ -45,11 +45,16 @@ export class MediaProvider {
     return this.http.get<MediaResponse[]>(`${this.mediaApi}/tags/${tag}`);
   }
 
-  checkUsernameAvailability(
-    username: string
-  ): Observable<UsernameAvailability> {
-    return this.http.get<UsernameAvailability>(
-      `${this.mediaApi}/users/username/${username}`
-    );
+  public checkUsernameAvailability(username: string) {
+    let isfree: boolean = false;
+    this.http
+      .get<UsernameAvailability>(`${this.mediaApi}/users/username/${username}`)
+      .subscribe((res: UsernameAvailability) => {
+        if (res.available) {
+          isfree = true;
+        }
+      });
+
+    return isfree;
   }
 }

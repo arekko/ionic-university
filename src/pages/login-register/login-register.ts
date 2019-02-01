@@ -1,13 +1,13 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
 import {
-  LoginResponse,
-  LoginUser,
-  RegisterResponse,
-  RegisterUserData
-} from "../../interfaces/user";
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from "@angular/forms";
+import { IonicPage, NavController } from "ionic-angular";
+import { LoginResponse } from "../../interfaces/user";
 import { MediaProvider } from "../../providers/media/media";
-import { UsernameAvailability } from "./../../interfaces/user";
 
 @IonicPage()
 @Component({
@@ -15,41 +15,74 @@ import { UsernameAvailability } from "./../../interfaces/user";
   templateUrl: "login-register.html"
 })
 export class LoginRegisterPage {
+  loginForm: FormGroup;
+  registerForm: FormGroup;
+  confirmPassword: string;
+  showRegister: boolean = false;
+  submitAttempt: boolean = false;
+
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
-    public mediaProvider: MediaProvider
-  ) {}
-
-  showRegister: boolean = false;
+    public mediaProvider: MediaProvider,
+    public formBuilder: FormBuilder
+  ) {
+    this.loginForm = formBuilder.group({
+      username: [
+        "",
+        Validators.compose([
+          Validators.maxLength(30),
+          Validators.minLength(3),
+          Validators.pattern("[a-zA-Z ]*"),
+          Validators.required
+        ])
+      ],
+      password: [
+        "",
+        Validators.compose([Validators.minLength(3), Validators.required])
+      ]
+    });
+    this.registerForm = formBuilder.group({
+      username: [
+        "",
+        Validators.compose([
+          Validators.maxLength(30),
+          Validators.minLength(3),
+          Validators.pattern("[a-zA-Z ]*"),
+          Validators.required
+        ]),
+        this.checkUsername
+      ],
+      password: [
+        "",
+        Validators.compose([Validators.minLength(5), Validators.required])
+      ],
+      email: ["", Validators.compose([Validators.email, Validators.required])],
+      full_name: [""]
+    });
+  }
 
   ionViewDidLoad() {}
 
-  login: LoginUser = {
-    username: "",
-    password: ""
-  };
-  register: RegisterUserData = {
-    username: "",
-    password: "",
-    email: "",
-    full_name: ""
-  };
   submitLoginForm() {
-    this.loginUser(this.login);
+    if (!this.loginForm.valid) {
+      alert("Invalid login input");
+    } else {
+      console.log(this.loginForm.value);
+      this.loginUser(this.loginForm.value);
+    }
   }
 
   submitRegisterForm() {
-    this.mediaProvider
-      .register(this.register)
-      .subscribe(async (res: RegisterResponse) => {
-        console.log(res);
-        res.user_id &&
-          this.loginUser({
-            username: this.register.username,
-            password: this.register.password
-          });
-      });
+    // this.mediaProvider
+    //   .register(this.register)
+    //   .subscribe(async (res: RegisterResponse) => {
+    //     console.log(res);
+    //     res.user_id &&
+    //       this.loginUser({
+    //         username: this.register.username,
+    //         password: this.register.password
+    //       });
+    //   });
   }
 
   loginUser(userData) {
@@ -68,15 +101,9 @@ export class LoginRegisterPage {
     this.showRegister = !this.showRegister;
   }
 
-  checkUsername() {
-    this.mediaProvider
-      .checkUsernameAvailability(this.register.username)
-      .subscribe((response: UsernameAvailability) => {
-        console.log(response);
-
-        if (!response.available) {
-          alert("this username already exist");
-        }
-      });
+  async checkUsername(control: FormControl) {
+    const username = control.value;
+    console.log(username);
+    return await this.mediaProvider.checkUsernameAvailability(username);
   }
 }
