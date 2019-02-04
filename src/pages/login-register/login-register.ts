@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators
 } from "@angular/forms";
+
 import { IonicPage, NavController } from "ionic-angular";
 import { LoginResponse } from "../../interfaces/user";
 import { MediaProvider } from "../../providers/media/media";
@@ -14,6 +15,7 @@ import { MediaProvider } from "../../providers/media/media";
   selector: "page-login-register",
   templateUrl: "login-register.html"
 })
+
 export class LoginRegisterPage {
   loginForm: FormGroup;
   registerForm: FormGroup;
@@ -71,7 +73,6 @@ export class LoginRegisterPage {
       this.loginUser(this.loginForm.value);
     }
   }
-
   submitRegisterForm() {
     // this.mediaProvider
     //   .register(this.register)

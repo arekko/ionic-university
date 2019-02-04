@@ -1,8 +1,7 @@
+import { ChangeDetectorRef, Component } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { MediaProvider } from "./../../providers/media/media";
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, FabButton } from "ionic-angular";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { renderComponent } from "@angular/core/src/render3";
 
 /**
  * Generated class for the UploadPage page.
@@ -25,7 +24,8 @@ export class UploadPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
-    public mediaProvider: MediaProvider
+    public mediaProvider: MediaProvider,
+    private cd: ChangeDetectorRef
   ) {
     this.uploadForm = formBuilder.group({
       title: [""],
@@ -37,37 +37,42 @@ export class UploadPage {
   submitUploadForm() {
     console.log(this.uploadForm.value);
 
-    // const fd = new FormData();
-    // fd.append("title", this.file);
-    // fd.append("description", this.file);
-    // fd.append("file", this.file);
+    const { title, description, file } = this.uploadForm.value;
+    console.log(title, description, file);
 
-    // this.mediaProvider.upload(fd).subscribe(res => console.log(res));
+    const fd = new FormData();
+    fd.append("title", title);
+    fd.append("description", description);
+    fd.append("file", file);
+
+    this.mediaProvider.upload(fd).subscribe(res => {
+      console.log(res);
+      setTimeout(() => {}, 2000);
+    });
   }
 
-  showPreview() {
-    let reader = new FileReader();
+  showPreview() {}
 
-    if (this.file) {
-      reader.readAsDataURL(this.file);
-    }
-
-    reader.onload = () => {
-      console.log(reader.result);
-      this.fileData = reader.result as string;
-      this.uploadForm.patchValue({
-        file: "hello"
-      });
-    };
-  }
-
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad UploadPage");
-  }
+  ionViewDidLoad() {}
 
   handleChange(event) {
     this.file = event.target.files[0];
 
-    this.showPreview();
+    let reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const file = event.target.files[0];
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.uploadForm.patchValue({
+          file: reader.result
+        });
+
+        // need to run CD since file load runs outside of zone
+        this.cd.markForCheck();
+        // this.showPreview();
+      };
+    }
   }
 }

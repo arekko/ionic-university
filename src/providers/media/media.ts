@@ -58,17 +58,16 @@ export class MediaProvider {
     return isfree;
   }
 
-  upload(data: any) {
+  upload(data: FormData) {
+    const token = localStorage.getItem("token");
+
     const httpOptions = {
       headers: new HttpHeaders({
-        "x-access-token": localStorage.getItem("token")
+        "Content-Type": "multipart/form-data",
+        "x-access-token": token
       })
     };
 
-    return this.http.post<LoginResponse | any>(
-      `${this.mediaApi}/media`,
-      data,
-      httpOptions
-    );
+    return this.http.post(`${this.mediaApi}/media`, data, httpOptions);
   }
 }

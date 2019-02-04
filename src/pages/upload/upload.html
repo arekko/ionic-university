@@ -29,13 +29,12 @@
     <ion-input
       type="file"
       placeholder="Media"
-      formControlName="file"
       (change)="handleChange($event)"
     ></ion-input>
     <button type="submit" ion-button full>Upload</button>
   </form>
 
-  <ion-card>
-    <img [src]="fileData" />
+  <ion-card *ngIf="uploadForm.value.file">
+    <img [src]="uploadForm.value.file" />
   </ion-card>
 </ion-content>
