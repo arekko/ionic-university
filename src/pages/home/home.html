@@ -1,5 +1,13 @@
 <ion-header>
-  <ion-navbar> <ion-title> Ionic App </ion-title> </ion-navbar>
+  <ion-navbar>
+    <ion-title> Ionic App </ion-title>
+
+    <ion-buttons *ngIf="mediaProvider.isLoggedIn" end>
+      <button ion-button (click)="showUploadPage()">
+        Upload &nbsp;<ion-icon color="primary" name="upload"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>

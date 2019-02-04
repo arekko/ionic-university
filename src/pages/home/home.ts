@@ -1,3 +1,4 @@
+import { UploadPage } from "./../upload/upload";
 import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
@@ -34,5 +35,9 @@ export class HomePage {
 
     const url = `http://media.mw.metropolia.fi/wbma/uploads/${e}`;
     this.photoViewer.show(url);
+  }
+
+  showUploadPage() {
+    this.navCtrl.push(UploadPage);
   }
 }
