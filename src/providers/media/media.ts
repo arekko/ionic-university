@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { MediaResponse } from "../../interfaces/media";
@@ -56,5 +56,19 @@ export class MediaProvider {
       });
 
     return isfree;
+  }
+
+  upload(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+
+    return this.http.post<LoginResponse | any>(
+      `${this.mediaApi}/media`,
+      data,
+      httpOptions
+    );
   }
 }
