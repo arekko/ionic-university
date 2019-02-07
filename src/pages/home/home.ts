@@ -1,4 +1,3 @@
-import { UploadPage } from "./../upload/upload";
 import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
@@ -6,6 +5,7 @@ import { NavController } from "ionic-angular";
 import { Observable } from "rxjs";
 import { MediaResponse } from "../../interfaces/media";
 import { MediaProvider } from "./../../providers/media/media";
+import { UploadPage } from "./../upload/upload";
 
 @Component({
   selector: "page-home",
@@ -22,7 +22,7 @@ export class HomePage {
   public mediaFilePath = "http://media.mw.metropolia.fi/wbma/uploads";
   picArray: Observable<MediaResponse[]>;
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     this.getAllFiles();
   }
 

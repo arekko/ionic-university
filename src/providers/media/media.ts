@@ -57,17 +57,29 @@ export class MediaProvider {
 
     return isfree;
   }
-
-  upload(data: FormData) {
-    const token = localStorage.getItem("token");
-
+  upload(data: any) {
     const httpOptions = {
       headers: new HttpHeaders({
-        "Content-Type": "multipart/form-data",
-        "x-access-token": token
+        "x-access-token": localStorage.getItem("token")
       })
     };
-
-    return this.http.post(`${this.mediaApi}/media`, data, httpOptions);
+    return this.http.post<LoginResponse>(
+      this.mediaApi + "/media",
+      data,
+      httpOptions
+    );
   }
+
+  // upload(data: FormData) {
+  //   const token = localStorage.getItem("token");
+
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       "Content-Type": "multipart/form-data",
+  //       "x-access-token": token
+  //     })
+  //   };
+
+  //   return this.http.post(`${this.mediaApi}/media`, data, httpOptions);
+  // }
 }
