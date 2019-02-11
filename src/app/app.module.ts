@@ -1,3 +1,4 @@
+import { PlayerPage } from "./../pages/player/player";
 import { Chooser } from "@ionic-native/chooser";
 import { UploadPage } from "./../pages/upload/upload";
 import { ProfilePage } from "./../pages/profile/profile";
@@ -22,7 +23,8 @@ import { LoginRegisterPage } from "../pages/login-register/login-register";
     MenuPage,
     LoginRegisterPage,
     ProfilePage,
-    UploadPage
+    UploadPage,
+    PlayerPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { LoginRegisterPage } from "../pages/login-register/login-register";
     MenuPage,
     LoginRegisterPage,
     ProfilePage,
-    UploadPage
+    UploadPage,
+    PlayerPage
   ],
   providers: [
     StatusBar,

@@ -21,6 +21,17 @@ export class MediaProvider {
 
   user: any = null;
 
+  // get user inforamtion
+
+  getUserInfo(userId) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.get(`${this.mediaApi}/users/${userId}`, httpOptions);
+  }
+
   getAllMedia(): Observable<MediaResponse[]> {
     return this.http.get<MediaResponse[]>(`${this.mediaApi}/media`);
   }

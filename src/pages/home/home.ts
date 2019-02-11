@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { MediaResponse } from "../../interfaces/media";
 import { MediaProvider } from "./../../providers/media/media";
 import { UploadPage } from "./../upload/upload";
+import { PlayerPage } from "../player/player";
 
 @Component({
   selector: "page-home",
@@ -39,5 +40,12 @@ export class HomePage {
 
   showUploadPage() {
     this.navCtrl.push(UploadPage);
+  }
+
+  showPlayerPage(fileId) {
+    console.log(fileId);
+    this.navCtrl.push(PlayerPage, {
+      fileId: fileId
+    });
   }
 }
