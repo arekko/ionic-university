@@ -5,6 +5,18 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-fab right bottom>
+    <button ion-fab color="light">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="camera"></ion-icon></button>
+      <button ion-fab (click)="handleChooser()">
+        <ion-icon name="image"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
   <form (submit)="submitUploadForm()">
     <ion-item no-lines>
       <ion-label>
@@ -26,13 +38,6 @@
         placeholder="description input"
         [(ngModel)]="description"
       ></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-buttons>
-        <button type="button" (click)="handleChooser()" ion-button block>
-          Add image
-        </button>
-      </ion-buttons>
     </ion-item>
     <ion-buttons>
       <button type="submit" ion-button block>Upload</button>

@@ -12,14 +12,17 @@
 
 <ion-content padding>
   <ion-card>
+    <ion-card-header>
+      <h1>{{ mediaProvider.user.username | uppercase }} Welcome Home</h1>
+    </ion-card-header>
+
     <img
       [src]="'profile' | getTagByUser | async | thumbnail: 'large' | async"
     />
-
-    <div class="card-title">{{ mediaProvider.user.username }}</div>
-    <div class="card-subtitle">{{ mediaProvider.user.full_name }}</div>
-    <div class="card-subtitle">{{ mediaProvider.user.email }}</div>
+    <ion-card-content>
+      <h2 class="card-title">{{ mediaProvider.user.username }}</h2>
+      <p class="card-subtitle">{{ mediaProvider.user.full_name }}</p>
+      <p class="card-subtitle">{{ mediaProvider.user.email }}</p>
+    </ion-card-content>
   </ion-card>
-
-  <button ion-button full (click)="logout()">Logout</button>
 </ion-content>

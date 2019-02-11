@@ -2,11 +2,6 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { MediaResponse } from "../../interfaces/media";
 import { MediaProvider } from "../../providers/media/media";
 
-/**
- * Generated class for the GetUserAvatarByIdPipe pipe.
- *
- * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
- */
 @Pipe({
   name: "getUserAvatarById"
 })
