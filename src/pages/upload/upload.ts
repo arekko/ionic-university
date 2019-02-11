@@ -7,13 +7,7 @@ import {
   NavParams
 } from "ionic-angular";
 import { MediaProvider } from "./../../providers/media/media";
-
-/**
- * Generated class for the UploadPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Chooser } from "@ionic-native/chooser";
 
 @IonicPage()
 @Component({
@@ -22,9 +16,10 @@ import { MediaProvider } from "./../../providers/media/media";
 })
 export class UploadPage {
   filedata = "";
-  file: File;
+  file: any;
   title = "";
   description = "";
+  blob: any;
 
   filters = {
     brightness: 100,
@@ -43,7 +38,8 @@ export class UploadPage {
     public formBuilder: FormBuilder,
     public mediaProvider: MediaProvider,
     private cd: ChangeDetectorRef,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    private chooser: Chooser
   ) {}
 
   submitUploadForm() {
@@ -54,7 +50,7 @@ export class UploadPage {
     const fd = new FormData();
     fd.append("title", this.title);
     fd.append("description", description + filters);
-    fd.append("file", this.file);
+    fd.append("file", this.blob);
     this.mediaProvider.upload(fd).subscribe(resp => {
       console.log(resp);
       setTimeout(() => {
@@ -67,8 +63,7 @@ export class UploadPage {
   showPreview() {
     const reader = new FileReader();
     reader.onloadend = evt => {
-      // console.log(reader.result);
-      this.filedata = reader.result as string;
+      this.blob = reader.result as string;
     };
 
     if (this.file.type.includes("video")) {
@@ -85,6 +80,17 @@ export class UploadPage {
   handleChange(event) {
     this.file = event.target.files[0];
     // call showPreview
+    this.showPreview();
+  }
+
+  async handleChooser() {
+    const file = await this.chooser.getFile("image/*");
+
+    if (file) {
+      this.blob = new Blob([file.data], {
+        type: file.mediaType
+      });
+    }
     this.showPreview();
   }
 }

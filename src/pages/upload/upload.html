@@ -28,12 +28,11 @@
       ></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>Choose media file</ion-label>
-      <ion-input
-        type="file"
-        accept="image/*, video/*, audio/*"
-        (change)="handleChange($event)"
-      ></ion-input>
+      <ion-buttons>
+        <button type="button" (click)="handleChooser()" ion-button block>
+          Add image
+        </button>
+      </ion-buttons>
     </ion-item>
     <ion-buttons>
       <button type="submit" ion-button block>Upload</button>

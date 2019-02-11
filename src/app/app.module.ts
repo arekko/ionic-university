@@ -1,3 +1,4 @@
+import { Chooser } from "@ionic-native/chooser";
 import { UploadPage } from "./../pages/upload/upload";
 import { ProfilePage } from "./../pages/profile/profile";
 import { PipesModule } from "./../pipes/pipes.module";
@@ -44,7 +45,8 @@ import { LoginRegisterPage } from "../pages/login-register/login-register";
     PhotoViewer,
     HttpClientModule,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    MediaProvider
+    MediaProvider,
+    Chooser
   ]
 })
 export class AppModule {}
