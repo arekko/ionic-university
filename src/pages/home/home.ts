@@ -4,9 +4,9 @@ import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { NavController } from "ionic-angular";
 import { Observable } from "rxjs";
 import { MediaResponse } from "../../interfaces/media";
+import { PlayerPage } from "../player/player";
 import { MediaProvider } from "./../../providers/media/media";
 import { UploadPage } from "./../upload/upload";
-import { PlayerPage } from "../player/player";
 
 @Component({
   selector: "page-home",
@@ -29,6 +29,7 @@ export class HomePage {
 
   getAllFiles() {
     this.picArray = this.mediaProvider.getAllMedia();
+    console.log("get all media");
   }
 
   itemHandle(e) {
@@ -47,5 +48,14 @@ export class HomePage {
     this.navCtrl.push(PlayerPage, {
       fileId: fileId
     });
+  }
+
+  async doRefresh(refresher) {
+    console.log("Begin async operation", refresher);
+
+    await this.getAllFiles();
+
+    refresher.complete();
+    console.log("End of async operation", refresher);
   }
 }
