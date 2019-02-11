@@ -22,13 +22,13 @@ export class GetUserAvatarByIdPipe implements PipeTransform {
         .subscribe((files: MediaResponse[]) => {
           console.log(files);
 
-          // files.forEach((file: MediaResponse) => {
-          //   if (file.user_id === userId) {
-          //     resolve(file.file_id);
-          //   } else {
-          //     // reject("No profile image added");
-          //   }
-          // });
+          files.forEach((file: MediaResponse) => {
+            if (file.user_id === userId) {
+              resolve(file.file_id);
+            } else {
+              // reject("No profile image added");
+            }
+          });
         });
     });
   }

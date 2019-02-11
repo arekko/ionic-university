@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
+import { Chooser } from "@ionic-native/chooser";
 import {
   IonicPage,
   LoadingController,
@@ -7,7 +8,6 @@ import {
   NavParams
 } from "ionic-angular";
 import { MediaProvider } from "./../../providers/media/media";
-import { Chooser } from "@ionic-native/chooser";
 
 @IonicPage()
 @Component({
@@ -15,7 +15,7 @@ import { Chooser } from "@ionic-native/chooser";
   templateUrl: "upload.html"
 })
 export class UploadPage {
-  filedata = "";
+  filedata: any;
   file: any;
   title = "";
   description = "";
@@ -63,25 +63,20 @@ export class UploadPage {
   showPreview() {
     const reader = new FileReader();
     reader.onloadend = evt => {
-      this.blob = reader.result as string;
+      this.filedata = reader.result;
     };
 
-    if (this.file.type.includes("video")) {
-      this.filedata = "http://via.placeholder.com/500X200/000?text=Video";
-    } else if (this.file.type.includes("audio")) {
-      this.filedata = "http://via.placeholder.com/500X200/000?text=Audio";
-    } else {
-      reader.readAsDataURL(this.file);
-    }
+    // if (this.file.type.includes("video")) {
+    //   this.filedata = "http://via.placeholder.com/500X200/000?text=Video";
+    // } else if (this.file.type.includes("audio")) {
+    //   this.filedata = "http://via.placeholder.com/500X200/000?text=Audio";
+    // } else {
+    // }
+
+    reader.readAsDataURL(this.blob);
   }
 
   ionViewDidLoad() {}
-
-  handleChange(event) {
-    this.file = event.target.files[0];
-    // call showPreview
-    this.showPreview();
-  }
 
   async handleChooser() {
     const file = await this.chooser.getFile("image/*");

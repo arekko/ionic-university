@@ -39,7 +39,7 @@
     </ion-buttons>
   </form>
 
-  <ion-card *ngIf="file">
+  <ion-card *ngIf="blob">
     <img
       #preview
       [src]="filedata"
@@ -56,7 +56,7 @@
           ')'
       }"
     />
-    <div *ngIf="file.type.includes('image')">
+    <div>
       <ion-item>
         <ion-range min="0" max="200" step="1" [(ngModel)]="filters.brightness">
           <ion-icon small range-left name="sunny"></ion-icon>

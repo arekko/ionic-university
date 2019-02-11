@@ -1,6 +1,6 @@
-import { MediaProvider } from "./../../providers/media/media";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { MediaProvider } from "./../../providers/media/media";
 
 @IonicPage()
 @Component({
@@ -32,6 +32,7 @@ export class PlayerPage {
       this.mediaInfo = res;
       this.fileType = res.media_type;
       console.log(res);
+      console.log(this.userInfo);
     });
   }
 
