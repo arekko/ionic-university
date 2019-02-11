@@ -19,7 +19,9 @@ export interface User {
   user_id: number;
   username: string;
   email: string;
-  time_created: string;
+  time_created?: string;
+  is_admin?: string;
+  full_name?: string;
 }
 
 export interface RegisterUserData {

@@ -78,6 +78,11 @@
   dependencies:
     tslib "^1.7.1"
 
+"@ionic-native/chooser@^4.20.0":
+  version "4.20.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/chooser/-/chooser-4.20.0.tgz#8dfcfc103853cf4fd56d085d2b91c5587b7160f7"
+  integrity sha512-3Qn6TqWBzs2EQV0zp0uoTRDVPPdC/EgkdzIQVnryTZg1p1NZ3L8hKuIOHms/WqFwOGMeA87dMImxSgHjw9JXJQ==
+
 "@ionic-native/core@~4.18.0":
   version "4.18.0"
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-4.18.0.tgz#d5f57e94c40f1b7bc1e86b4d7a17f02110249383"
@@ -98,7 +103,7 @@
   resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-4.18.0.tgz#793130baf26b6fb4172250f6fd839d25a926ffc7"
   integrity sha512-3CoeEH3+N3OPqBEtqJ6qtcrEdnXefCNlhKnu19KUzIg3jcQ4hEjbfHJRcrv0xcO4OsFQeDcNEnPsnquN0+q6MQ==
 
-"@ionic/app-scripts@3.2.2":
+"@ionic/app-scripts@^3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@ionic/app-scripts/-/app-scripts-3.2.2.tgz#32e2767e7a1e05d091fb474c39a4b70cadcec867"
   integrity sha512-ZpeAafEboO/xHnmgy61ZOsaMGpoer621YX3q09x+BA2sbcuqOEsMKV91BRZmghoiHlwBB9woxXRyAwuYIAASHw==
@@ -870,11 +875,6 @@ color-name@1.1.3:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
   integrity sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
 
-com-sarriaroman-photoviewer@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/com-sarriaroman-photoviewer/-/com-sarriaroman-photoviewer-1.2.0.tgz#c033232cc42bbe09bcac4a7d3708d961c0c85d87"
-  integrity sha512-vd+jKHKlZQ2PadC2Lx7su8lKbub6HUkgmieMMzUEAn4m++a3BKLJtV8WrtiTiab3E6IoXrxPizSf97RONGLQlQ==
-
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
@@ -1010,6 +1010,16 @@ cordova-ios@4.5.5:
     xml-escape "1.1.0"
     xmlbuilder "8.2.2"
 
+cordova-plugin-add-swift-support@1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-add-swift-support/-/cordova-plugin-add-swift-support-1.7.2.tgz#02ae655f3e123974f6b43da4340e7e8e1f316d48"
+  integrity sha512-4syQ0srjXvlH07sAxQlwMAAqIRTI28IWLYI44RFAKFRdYoIyopjQDqUWdieBK2ELvxgffkn6Rr0r0hMdRyGz/w==
+
+cordova-plugin-chooser@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-chooser/-/cordova-plugin-chooser-1.2.5.tgz#869c758857f660cc124193c261a0f130ba23e96b"
+  integrity sha512-md5ZT3Q3aIV/G0VJNWifsYc/aObNijlAO2reOh7ZOv0UvjqLPvbhapkDsKx7852nGUQeS0MFlhJ6SDNlNl7ftQ==
+
 cordova-plugin-device@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/cordova-plugin-device/-/cordova-plugin-device-2.0.2.tgz#fc08f3722e67eef7b6c67bfc99a83df6add0baba"
@@ -1020,10 +1030,10 @@ cordova-plugin-ionic-keyboard@^2.1.3:
   resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-keyboard/-/cordova-plugin-ionic-keyboard-2.1.3.tgz#6b050d5b7cb4393d5758b55f45a46372f25178fe"
   integrity sha512-6ucQ6FdlLdBm8kJfFnzozmBTjru/0xekHP/dAhjoCZggkGRlgs8TsUJFkxa/bV+qi7Dlo50JjmpE4UMWAO+aOQ==
 
-cordova-plugin-ionic-webview@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-2.3.2.tgz#f4b1d669cefe7d25cfe47cfc9c6fe820211b63fa"
-  integrity sha512-f7nXWTT93ZAJP4fMUxZWd8BacegTJNUK9Cocu0n2SH8gliAIjKzJtvSzEONSJ5b1Xp2osdUF6f5x+oWvyM90jQ==
+cordova-plugin-ionic-webview@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-2.3.3.tgz#bd3513b0c1e02405b3111f1451260c1ca242f65b"
+  integrity sha512-LMto7S2xjsPS0LiZvYcm8ZAFqobx01CH07TShi016Ah77J5IAr9CJkA4cJOf0+2CREwP3W+PM5n5Pet2x4t21A==
 
 cordova-plugin-splashscreen@^5.0.2:
   version "5.0.2"

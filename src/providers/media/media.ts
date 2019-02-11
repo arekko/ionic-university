@@ -6,7 +6,8 @@ import {
   LoginResponse,
   LoginUser,
   RegisterResponse,
-  RegisterUserData
+  RegisterUserData,
+  User
 } from "../../interfaces/user";
 import { UsernameAvailability } from "./../../interfaces/user";
 
@@ -23,13 +24,13 @@ export class MediaProvider {
 
   // get user inforamtion
 
-  getUserInfo(userId) {
+  getUserInfo(userId): Observable<User> {
     const httpOptions = {
       headers: new HttpHeaders({
         "x-access-token": localStorage.getItem("token")
       })
     };
-    return this.http.get(`${this.mediaApi}/users/${userId}`, httpOptions);
+    return this.http.get<User>(`${this.mediaApi}/users/${userId}`, httpOptions);
   }
 
   getAllMedia(): Observable<MediaResponse[]> {
