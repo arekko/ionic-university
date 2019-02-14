@@ -1,6 +1,6 @@
+import { Chooser } from '@ionic-native/chooser';
 import { ChangeDetectorRef, Component } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-import { Chooser } from "@ionic-native/chooser";
 import {
   IonicPage,
   LoadingController,
@@ -9,11 +9,16 @@ import {
 } from "ionic-angular";
 import { MediaProvider } from "./../../providers/media/media";
 
+
+
 @IonicPage()
 @Component({
   selector: "page-upload",
   templateUrl: "upload.html"
 })
+
+
+
 export class UploadPage {
   filedata: any;
   file: any;
