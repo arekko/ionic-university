@@ -24,6 +24,20 @@ export class MediaProvider {
 
   // get user inforamtion
 
+  _getHeaderWithToken(): object | null {
+    const token = localStorage.getItem("token");
+    let options: object | null = null;
+
+    if (token) {
+      options = {
+        headers: new HttpHeaders({
+          "x-access-token": token
+        })
+      };
+    }
+    return options;
+  }
+
   getUserInfo(userId): Observable<User> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -82,16 +96,25 @@ export class MediaProvider {
     );
   }
 
-  // upload(data: FormData) {
-  //   const token = localStorage.getItem("token");
+  // Requset list of file of current user
 
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       "Content-Type": "multipart/form-data",
-  //       "x-access-token": token
-  //     })
-  //   };
+  getCurrentUserFiles(): Observable<MediaResponse[]> {
+    if (this._getHeaderWithToken()) {
+      return this.http.get<MediaResponse[]>(
+        `${this.mediaApi}/media/user`,
+        this._getHeaderWithToken()
+      );
+    }
+  }
 
-  //   return this.http.post(`${this.mediaApi}/media`, data, httpOptions);
-  // }
+  deleteFileById(fileId: string) {
+    console.log(fileId);
+
+    if (this._getHeaderWithToken()) {
+      return this.http.delete(
+        `${this.mediaApi}/media/${fileId}`,
+        this._getHeaderWithToken()
+      );
+    }
+  }
 }

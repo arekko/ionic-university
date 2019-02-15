@@ -29,8 +29,7 @@ export class HomePage {
 
   getAllFiles() {
     this.picArray = this.mediaProvider.getAllMedia();
-    console.log('get all');
-    
+    console.log("get all");
   }
 
   itemHandle(e) {
@@ -45,7 +44,6 @@ export class HomePage {
   }
 
   showPlayerPage(fileId) {
-    console.log(fileId);
     this.navCtrl.push(PlayerPage, {
       fileId: fileId
     });
