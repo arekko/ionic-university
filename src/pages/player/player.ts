@@ -31,8 +31,6 @@ export class PlayerPage {
       this.getUserData(res.user_id);
       this.mediaInfo = res;
       this.fileType = res.media_type;
-      console.log(res);
-      console.log(this.userInfo);
     });
   }
 
