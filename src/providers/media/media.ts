@@ -47,8 +47,10 @@ export class MediaProvider {
     return this.http.get<User>(`${this.mediaApi}/users/${userId}`, httpOptions);
   }
 
-  getAllMedia(): Observable<MediaResponse[]> {
-    return this.http.get<MediaResponse[]>(`${this.mediaApi}/media`);
+  getAllMedia(start): Observable<MediaResponse[]> {
+    return this.http.get<MediaResponse[]>(
+      `${this.mediaApi}/media?start=${start}`
+    );
   }
 
   getSingleMedia(id: number): Observable<MediaResponse> {

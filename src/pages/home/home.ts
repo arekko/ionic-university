@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { NavController } from "ionic-angular";
-import { Observable } from "rxjs";
 import { MediaResponse } from "../../interfaces/media";
 import { PlayerPage } from "../player/player";
 import { MediaProvider } from "./../../providers/media/media";
@@ -13,6 +12,10 @@ import { UploadPage } from "./../upload/upload";
   templateUrl: "home.html"
 })
 export class HomePage {
+  start: number = 0;
+  items: MediaResponse[] = [];
+  mediaFilePath = "http://media.mw.metropolia.fi/wbma/uploads";
+
   constructor(
     public navCtrl: NavController,
     private photoViewer: PhotoViewer,
@@ -20,23 +23,16 @@ export class HomePage {
     private mediaProvider: MediaProvider
   ) {}
 
-  public mediaFilePath = "http://media.mw.metropolia.fi/wbma/uploads";
-  picArray: Observable<MediaResponse[]>;
-
   async ionViewDidEnter() {
     this.getAllFiles();
+    this.start = 0;
   }
 
   getAllFiles() {
-    this.picArray = this.mediaProvider.getAllMedia();
-    console.log("get all");
-  }
-
-  itemHandle(e) {
-    // console.log(this.media);
-
-    const url = `http://media.mw.metropolia.fi/wbma/uploads/${e}`;
-    this.photoViewer.show(url);
+    this.mediaProvider.getAllMedia(this.start).subscribe(res => {
+      this.items = [...this.items, ...res];
+      this.start = this.start + 10;
+    });
   }
 
   showUploadPage() {
@@ -50,11 +46,15 @@ export class HomePage {
   }
 
   async doRefresh(refresher) {
-    console.log("Begin async operation", refresher);
-
     await this.getAllFiles();
-
     refresher.complete();
-    console.log("End of async operation", refresher);
+  }
+
+  loadData(event) {
+    this.mediaProvider.getAllMedia(this.start).subscribe(res => {
+      this.items = [...this.items, ...res];
+      this.start = this.start + 10;
+      event.complete();
+    });
   }
 }

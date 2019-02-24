@@ -1,3 +1,4 @@
+import { UploadPage } from './../upload/upload';
 import { ProfilePage } from "./../profile/profile";
 import { MediaProvider } from "./../../providers/media/media";
 import { Component } from "@angular/core";
@@ -14,6 +15,7 @@ export class MenuPage {
   homePage = HomePage;
   loginRegisterPage = LoginRegisterPage;
   profilePage = ProfilePage;
+  uploadPage = UploadPage
 
   constructor(
     public navCtrl: NavController,

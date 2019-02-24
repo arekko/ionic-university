@@ -6,6 +6,7 @@ import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { ItemListComponent } from "../components/item-list/item-list";
 import { HomePage } from "../pages/home/home";
 import { LoginRegisterPage } from "../pages/login-register/login-register";
 import { MenuPage } from "../pages/menu/menu";
@@ -28,7 +29,8 @@ import { MyApp } from "./app.component";
     UploadPage,
     PlayerPage,
     MyFilesPage,
-    UpdatePage
+    UpdatePage,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { MyApp } from "./app.component";
     UploadPage,
     PlayerPage,
     MyFilesPage,
-    UpdatePage
+    UpdatePage,
+    ItemListComponent
   ],
   providers: [
     StatusBar,

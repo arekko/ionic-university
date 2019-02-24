@@ -1,7 +1,7 @@
 <ion-tabs>
   <ion-tab [root]="homePage" tabIcon="home"></ion-tab>
   <ion-tab
-    tabIcon="log-in"
+    tabIcon="reorder"
     [show]="!mediaProvider.isLoggedIn"
     [root]="loginRegisterPage"
   ></ion-tab>
@@ -9,5 +9,10 @@
     tabIcon="person"
     [show]="mediaProvider.isLoggedIn"
     [root]="profilePage"
+  ></ion-tab>
+  <ion-tab
+    tabIcon="add"
+    [show]="mediaProvider.isLoggedIn"
+    [root]="uploadPage"
   ></ion-tab>
 </ion-tabs>

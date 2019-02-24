@@ -42,7 +42,7 @@
     <ion-card-content>
       <h1>{{ mediaInfo.title }}</h1>
       <p>
-        {{ mediaInfo.description }}
+        {{ mediaInfo.description | decodeDesc }}
       </p>
     </ion-card-content>
   </ion-card>

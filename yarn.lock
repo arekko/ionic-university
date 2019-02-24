@@ -103,7 +103,7 @@
   resolved "https://registry.yarnpkg.com/@ionic-native/status-bar/-/status-bar-4.18.0.tgz#793130baf26b6fb4172250f6fd839d25a926ffc7"
   integrity sha512-3CoeEH3+N3OPqBEtqJ6qtcrEdnXefCNlhKnu19KUzIg3jcQ4hEjbfHJRcrv0xcO4OsFQeDcNEnPsnquN0+q6MQ==
 
-"@ionic/app-scripts@^3.2.2":
+"@ionic/app-scripts@3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@ionic/app-scripts/-/app-scripts-3.2.2.tgz#32e2767e7a1e05d091fb474c39a4b70cadcec867"
   integrity sha512-ZpeAafEboO/xHnmgy61ZOsaMGpoer621YX3q09x+BA2sbcuqOEsMKV91BRZmghoiHlwBB9woxXRyAwuYIAASHw==

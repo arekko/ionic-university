@@ -15,10 +15,12 @@ export class GetUserAvatarByIdPipe implements PipeTransform {
       this.mediaProvider
         .getFilesByTag(tag)
         .subscribe((files: MediaResponse[]) => {
-          console.log(files);
+          console.log("files from pipe", files);
 
           files.forEach((file: MediaResponse) => {
             if (file.user_id === userId) {
+              console.log(file.file_id);
+
               resolve(file.file_id);
             } else {
               // reject("No profile image added");
